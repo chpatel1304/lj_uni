@@ -16,4 +16,4 @@ else:
         nth = n_1 + n_2  
         n_1 = n_2  
         n_2 = nth  
-        count += 1  
+        count +=1
