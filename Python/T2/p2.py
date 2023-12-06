@@ -3,4 +3,3 @@ s=input("Enter String here :")
 sub=input("Enter Substring to find :")
 s=s.lower()
 print(s.count(sub))
-
