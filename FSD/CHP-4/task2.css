@@ -1,0 +1,14 @@
+.heading{
+    font-size: 120%;
+    font-style: normal;
+}
+.arial{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    text-indent: 3cm;
+}
+body{
+    background-image: url(download.png);
+    background-repeat: repeat-y;
+}
+
