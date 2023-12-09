@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       input[type="textbox"]:hover{
+            background-color: yellow;
+       }
+       input[type="password"]:hover{
+        background-color: pink;
+        }
+        input[type="submit"]:hover{
+            background-color: blue;
+       }
+       input[type="reset"]:hover{
+        background-color: blue;
+        }
+        input[type="checkbox"]:checked+label{
+            color: red;
+            background-color: blue;
+        }
+        input[type="radio"]:checked+label{
+            color: pink;
+            background-color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <!-- write an html and css script to design a signup form having fields like username
+    and password include subimt ane reset button follow below req
+    1. while hovering user name and passowrd its background should turn yellow color
+        and pink respectively 
+    2. both submit and reset buttons turn blue while hovering use appro selectors 
+    3.  -->
+    <form action="">
+        <fieldset>
+            <legend align="center">Signup Form</legend>
+            <label for="user">Username: <input type="textbox"></label><br>
+            <br>
+            <label for="pass">Password: <input type="password"></label><br>
+            <br>
+            <label for="cri"><input type="checkbox"><label>Cricket</label></label><br>
+            <br>
+            <label for="radio"><input type="radio"><label>Male</label></label>
+            <label for="radio"><input type="radio"><label>Female</label></label><br>
+            <br>
+            <label for="sub"><input type="submit"></label>
+            <label for="res"><input type="reset"></label><br>
+        </fieldset>
+    </form>
+
+</body>
+</html>
