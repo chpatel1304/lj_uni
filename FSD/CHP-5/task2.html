@@ -1,0 +1,35 @@
+<!-- write html and css file to make login form having fields username password submit 
+reset button -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK 2</title>
+    <style>
+        input{
+            height: 10%;
+            width: 10%;
+            transition-duration: 4s;
+            transition-delay: 2s;
+        }
+        input:hover{
+            width: 20%;
+            height: 20%;
+        }
+    </style>
+</head>
+<body>
+    <form action="get">
+        <fieldset> 
+            <legend align="center">Login</legend>
+            <label for="user" >Username : <input type="textbox" placeholder="Enter your Username"></label><br>
+            <br>
+            <label for="pass">Password : <input type="password" placeholder="Enter your Password"></label><br>
+            <br>
+            <label for="sub"><input type="submit"></label>
+            <label for="res"><input type="reset"></label>
+        </fieldset>
+    </form>
+</body>
+</html>
