@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Css Animation</title>
+    <style>
+        div{
+            animation-name: Test;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-duration: 4s;
+            animation-iteration-count: 4;
+            animation-delay: 2s;
+            animation-direction: reverse;
+        }
+        @keyframes Test{
+            0%{background-color: red;}
+            25%{background-color: blue;}
+            50%{background-color:pink;}
+            100%{background-color: green;}
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

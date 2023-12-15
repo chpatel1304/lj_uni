@@ -1,0 +1,41 @@
+<!-- wirte html and css file to design one banner of advertisment using p tag that 
+text of ad should move continously from left end to right end than return back from 
+right to left   use red and bigger fonts for text ad should begin after 1s of loading page-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advertisment</title>
+    <style>
+        div{
+            position: relative;
+            height: 100px;
+            width: 200px;
+            animation-name: Ad;
+            background-color: antiquewhite;
+            animation-duration: 1s;
+            animation-delay: 1ms;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;            
+        }
+        @keyframes Ad{
+            0%{background-color:red;left: 0px;}
+            25%{background-color:yellow;left: 250px;}
+            50%{background-color:green;left: 500px;}
+            75%{background-color:blue;left: 750px;}
+            100%{background-color:chocolate;left: 1000px;}
+        }
+    </style>
+</head>
+<body>
+    <div><p>Chirag</p>
+    </div>
+    <div><p>Yasvi</p>
+    </div>
+    <div><p>Ekal</p>
+    </div>
+    <div><p>Agreshah</p>
+    </div>
+    </body>
+</html>
