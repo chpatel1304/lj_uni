@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Css Button</title>
+    <style>
+        .button{
+            text-decoration: none;
+            background-color: goldenrod;
+            color: white;
+            padding: 10px 3px;
+            margin: 6px 7px;
+            text-align: center;
+            display: inline-block;
+            font-size: 20px;
+            cursor: grab;
+        }
+        .button:hover{
+            background-color: brown;
+            color: blue;
+        }
+    </style>
 </head>
 <body>
-    
+       <input type="button" value="click" class="button"/>
+       <button class="button">Submit</button>
+       <a href="#" class="button">Link Button</a>
 </body>
 </html>
