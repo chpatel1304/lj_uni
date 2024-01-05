@@ -1,0 +1,60 @@
+<!-- To take 4 sections using div 
+1st Sec has text realted doc and componenet like para abbr pre tag 
+2nd sec haveing table with 3 rows first rows is upperacase second row is lowercase third row capatalize
+3rd div has simple direct case in justify manner 
+last div has div blockquotes 
+all div has width 25 % -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <style>
+        div{
+            width: 25%;
+            border: 2px solid ;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, quidem aliquid! Saepe est aliquid delectus unde voluptate repellat iure hic ea, consectetur vitae aliquam similique, consequuntur natus sit dolorum temporibus fugit impedit molestias autem culpa corrupti! Cumque pariatur et ipsum aut fugiat libero, consequatur eveniet eaque natus. Expedita, sunt inventore.</p>
+        <abbr title="Lorem_50">About</abbr>
+        <pre>This 
+                is 
+                  About 
+                      Bootstrap
+        </pre>
+    </div>
+    <div class="section">
+        <table class="table table-bordered table-hover table-striped">
+            <tr>
+                <td class="text-uppercase">a</td>
+                <td class="text-uppercase">b</td>
+                <td class="text-uppercase">c</td>
+            </tr>
+            <tr>
+                <td class="text-lowercase">a</td>
+                <td class="text-lowercase">b</td>
+                <td class="text-lowercase">c</td>
+            </tr>
+            <tr>
+                <td class="text-capitalize">a</td>
+                <td class="text-capitalize">b</td>
+                <td class="text-capitalize">c</td>
+            </tr>
+        </table>
+    </div>
+    <div class="section">
+        <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ipsum veniam alias perspiciatis dolorum nulla repudiandae cumque sint inventore molestiae, eum voluptate tempora similique? Provident in quo temporibus animi neque assumenda excepturi corrupti sit illo ad porro dolorem officia debitis nostrum omnis illum molestiae nesciunt pariatur deserunt, nisi consequuntur? Exercitationem fugiat unde saepe fuga neque, et quo at eligendi veritatis quasi tempore non excepturi consequuntur perferendis commodi dolor odit pariatur!</p>
+    </div>
+    <div class="section">
+        <blockquote class="blockquote">
+            <h1>This is This</h1>
+            <footer class="blockquote-footer">Me</footer>
+        </blockquote>
+    </div>
+</body>
+</html>
