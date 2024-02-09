@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function clickme(id){
+            id.innerHTML="Done"
+        }
+        function upper(id){
+            id.value=id.value.toUpperCase();
+        }
+
+        function fun(id){
+            id.innerHTML="Mouse Over"
+        }
+
+        function fun1(id){
+            id.innerHTML="Mouse Out"
+        }
+    </script>
+</head>
+<body>
+    <h1 onclick="clickme(this)">Click On Me </h1>
+    <input type="text" onchange="upper(this)">
+    <input type="text" onfocus="this.style.backgroundColor='yellow'">
+
+    <div onmouseover="fun(this)" onmouseout="fun1(this)" 
+     style="width: 50%; height: 40%; background-color: red; border: 2px solid green ;"></div>
+</body>
+</html>
