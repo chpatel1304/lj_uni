@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fun(){
+            pat_n=/^[A-Z]+$/;
+            pat_ph=/^\d{10}$/;
+            pat_e=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3}+$)/;
+
+            n=document.getElementById("t1").value;
+                if(pat_n.test(n)){
+                    alert("Valid Username")
+                }
+
+            ph=document.getElementById("t2").value;
+                if(pat_ph.test(ph)){
+                    alert("Valid Number")
+                }
+
+             e=document.getElementById("t3").value;
+                if(pat_e.test(e)){
+                    alert("Valid Email")
+                }
+            document.write(n);
+            document.write(ph);
+            document.write(e);
+        }
+
+    </script>
+</head>
+<body>
+    Name: <input type="text" id="t1">
+    Phone Number : <input type="text" id="t2">
+    Email : <input type="text" id="t3">
+    <button onclick="fun()">Submit</button>
+</body>
+</html>

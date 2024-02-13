@@ -1,13 +1,30 @@
-<!-- Js to handle following key events  -->
+<!-- Js to handle following mouse events 
+1. If mouse is over heading should turn Yellow color if mouse is out then it should turn black color 
+2. If find time button is clicked then show date and time info 
+3. IF BUTTON name red is clicked then bg should turn red color and button name green is clicked then 
+    bg color should turn green   -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        function fun(id){
+            id.style.color="yellow";
+        }
+        function fun1(id){
+            id.style.color="red";
+        }
+        function date(){
+            var v=new Date();
+            document.write(v);
+        }
+    </script>
     
 </head>
 <body>
-    
+    <h1 onmouseout="fun(this)"  onmouseover="fun1(this)">HELLO LJKU</h1>
+    <button onclick="date()">DATE</button>
 </body>
 </html>
