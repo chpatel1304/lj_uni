@@ -53,7 +53,7 @@ class HospitalManagementSystem:
         password = self.password_entry.get()
 
      
-        if username == "admin" and password == "admin":
+        if username == "1" and password == "1":
             self.login_frame.destroy()
             self.create_main_menu()
         else:
@@ -153,7 +153,7 @@ class HospitalManagementSystem:
         self.old_paitent_search.grid(row=70,column=0,padx=5,pady=5)
 
         #OLD PAITENT UPDATE BUTTON
-        self.old_paitent_update=tk.Button(self.old_p_frame,text="Update Details")
+        self.old_paitent_update=tk.Button(self.old_p_frame,text="Update Details",command=self.update_old_paitent)
         self.old_paitent_update.grid(row=70,column=1,padx=5,pady=5)
 
         #BACK BUTTON
@@ -186,12 +186,18 @@ class HospitalManagementSystem:
 
     def update_old_paitent(self):
         
-        if self.old_paitent_id_entry.get()=="" or self.old_paitent_name_entry.get()=="" or sel.f.old_paitent_dob_entry.get()=="" or self.old_paitent_num_entry.get()=="" or self.old_paitent_d_entry.get()=="" or self.old_paitent_dr_entry.get()=="" or self.old_paitent_ppa_entry=="":
+        if self.old_paitent_id_entry.get()=="" or self.old_paitent_name_entry.get()=="" or self.old_paitent_dob_entry.get()=="" or self.old_paitent_num_entry.get()=="" or self.old_paitent_d_entry.get()=="" or self.old_paitent_dr_entry.get()=="" or self.old_paitent_ppa_entry=="":
             msg.showinfo("Update Status","All Fields Are Mandatory")
         else:
             self.conn=self.create_conn()
             self.cursor=self.conn.cursor()
-            self.q=""
+            self.q="update paitent set id=%s,pname=%s,pdob=%s,pnum=%s,pd=%s,dname=%s,ppa=%s where pnum=%s"
+            self.args=(self.old_paitent_id_entry.get(),self.old_paitent_name_entry.get(),self.old_paitent_dob_entry.get(),self.old_paitent_num_entry.get(),self.old_paitent_d_entry.get(),self.old_paitent_dr_entry.get(),self.old_paitent_ppa_entry.get(),self.old_paitent_num_entry.get())
+            self.cursor.execute(self.q,self.args)
+            self.conn.commit()
+            self.conn.close()
+            msg.showinfo("Update Status","Data Updated Succesfully !")
+            self.destory_old_patient()
 
         
     def destory_old_patient(self):
