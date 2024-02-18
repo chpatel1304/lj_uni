@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copy Textfield Contents to Paragraph</title>
+<style>
+    #myTextField {
+        background-color: white; /* Initial background color */
+    }
+</style>
+</head>
+<body>
+    <input type="text" id="myTextField">
+    <p id="outputParagraph"></p>
+
+    <script>
+        var textField = document.getElementById('myTextField');
+        var outputParagraph = document.getElementById('outputParagraph');
+
+        textField.addEventListener('blur', function() {
+            this.style.backgroundColor = 'red'; // Change background color to red on blur
+            outputParagraph.textContent = textField.value.toLowerCase(); // Copy content to paragraph in lowercase
+        });
+
+        textField.addEventListener('focus', function() {
+            this.style.backgroundColor = 'white'; // Reset background color on focus
+        });
+    </script>
+</body>
+</html>
