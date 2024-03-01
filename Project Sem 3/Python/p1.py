@@ -14,7 +14,7 @@ class HospitalManagementSystem:
                 password="",
                 database="python_project"
             )
-
+#----------------------------------------------------------------------INIT METHOD -------------------------------------------------------------------------
     def __init__(self, master):
         
         self.master = master
@@ -47,7 +47,7 @@ class HospitalManagementSystem:
         self.login_button = tk.Button(self.login_frame, text="Login", command=self.login)
         self.login_button.grid(row=100, columnspan=2, padx=5, pady=5)
         
-
+#--------------------------------------------------------------------LOGIN METHOD ------------------------------------------------------------------------
     def login(self):
         username = self.username_entry.get()
         password = self.password_entry.get()
@@ -60,6 +60,7 @@ class HospitalManagementSystem:
           
             tk.messagebox.showerror("Error", "Invalid username or password")
 
+#-----------------------------------------------------------------MAIN MENU METHOD -------------------------------------------------------------------------
     def create_main_menu(self):
         self.main_menu = tk.Menu(self.master)
 
@@ -418,27 +419,50 @@ class HospitalManagementSystem:
 
         #OLD PAITENT DISEASE
         self.check_p_d=tk.Label(self.check_p_frame,text="Paitent Disease:")
-        self.check_p_d.grid(row=45,column=0,padx=5,pady=5)
+        self.check_p_d.grid(row=50,column=0,padx=5,pady=5)
         self.check_p_d_entry=tk.Entry(self.check_p_frame)
-        self.check_p_d_entry.grid(row=45,column=1,padx=5,pady=5)
+        self.check_p_d_entry.grid(row=50,column=1,padx=5,pady=5)
 
         #OLD PAITENT PENDING AMOUNT
         self.check_p_dob=tk.Label(self.check_p_frame,text="Pending Amount :")
-        self.check_p_dob.grid(row=50,column=0,padx=5,pady=5)
+        self.check_p_dob.grid(row=55,column=0,padx=5,pady=5)
         self.check_p_dob_entry=tk.Entry(self.check_p_frame)
-        self.check_p_dob_entry.grid(row=50,column=1,padx=5,pady=5)
+        self.check_p_dob_entry.grid(row=55,column=1,padx=5,pady=5)
 
         #OLD PAITENT SEARCH BUTTON
-        self.check_p_search=tk.Button(self.check_p_frame,text="Search Paitent")
-        self.check_p_search.grid(row=55,column=0,padx=5,pady=5)
+        self.check_p_search=tk.Button(self.check_p_frame,text="Search Paitent",command=self.check_old_paitent)
+        self.check_p_search.grid(row=60,column=0,padx=5,pady=5)
 
         #OLD PAITENT DELETE BUTTON
         self.check_p_delete=tk.Button(self.check_p_frame,text="Delete Details")
-        self.check_p_delete.grid(row=55,column=1,padx=5,pady=5)
+        self.check_p_delete.grid(row=60,column=1,padx=5,pady=5)
 
         #BACK BUTTON
         self.back = tk.Button(self.check_p_frame, text="BACK",command=self.destory_check_patient)
-        self.back.grid(row=60, columnspan=2, padx=5, pady=5)
+        self.back.grid(row=65, columnspan=2, padx=5, pady=5)
+
+    def check_old_paitent(self):
+        if self.check_p_num_entry.get()=="":
+            msg.showinfo("Search Status","Mobile Number  Is Mandatory")
+        else:
+            self.conn=self.create_conn()
+            self.cursor=self.conn.cursor()
+            self.q="select * from paitent where pnum=%s"
+            self.args=(self.check_p_num_entry.get(),)
+            self.cursor.execute(self.q,self.args)
+            self.row=self.cursor.fetchall()
+            if self.row:
+                for i in self.row:
+                    self.check_p_id_entry.insert(0,i[0])
+                    self.check_p_name_entry.insert(0,i[1])
+                    self.check_p_dob_entry.insert(0,i[2])
+                    #self.old_paitent_num_entry.insert(0,i[3])
+                    self.check_p_d_entry.insert(0,i[4])
+                    #self.old_paitent_dr_entry.insert(0,i[5])
+                    self.check_p_dob_entry.insert(0,i[7])
+            else:
+                msg.showinfo("Search Status","Mobile Number is not found")
+            self.conn.close()
 
     def destory_check_patient(self):
         self.check_p_frame.destroy()
