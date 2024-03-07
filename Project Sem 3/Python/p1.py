@@ -93,6 +93,8 @@ class HospitalManagementSystem:
         self.check_doctor_button = tk.Button(self.menu_frame , text="Show Doctor Details", command=self.check_doctor)
         self.check_doctor_button .grid(row=180, columnspan=4, padx=5, pady=5)
 
+#--------------------------------------------------------------------OLD PAITENT METHOD---------------------------------------------------------------------
+
     def old_patient(self):
         
         self.menu_frame.destroy()
@@ -161,6 +163,8 @@ class HospitalManagementSystem:
         self.back = tk.Button(self.old_p_frame, text="BACK",command=self.destory_old_patient)
         self.back.grid(row=75, columnspan=2, padx=5, pady=5)
 
+#--------------------------------------------------------------------OLD PAITENT SEARCH METHOD ---------------------------------------------------------------------
+
     def search_old_paitent(self):
         if self.old_paitent_num_entry.get()=="":
             msg.showinfo("Search Status","Mobile Number  Is Mandatory")
@@ -183,7 +187,8 @@ class HospitalManagementSystem:
             else:
                 msg.showinfo("Search Status","Mobile Number is not found")
             self.conn.close()
-            
+
+#--------------------------------------------------------------------OLD PAITENT UPDATE METHOD---------------------------------------------------------------------
 
     def update_old_paitent(self):
         
@@ -200,10 +205,13 @@ class HospitalManagementSystem:
             msg.showinfo("Update Status","Data Updated Succesfully !")
             self.destory_old_patient()
 
-        
+#--------------------------------------------------------------------OLD PAITENT DESTROY METHOD---------------------------------------------------------------------
+
     def destory_old_patient(self):
         self.old_p_frame.destroy()
         self.create_main_menu()
+
+#--------------------------------------------------------------------NEW PAITENT METHOD---------------------------------------------------------------------
         
     def new_patient(self):
         
@@ -278,7 +286,7 @@ class HospitalManagementSystem:
         self.back = tk.Button(self.new_p_frame, text="BACK",command=self.destroy_new_patient)
         self.back.grid(row=75, column=1, padx=5, pady=5)
 
-    
+#--------------------------------------------------------------------NEW PAITENT INSERT METHOD---------------------------------------------------------------------
 
     def insert_patient(self):
 
@@ -305,12 +313,14 @@ class HospitalManagementSystem:
             msg.showinfo("Add New Paitent","Paitent Added Successfully !!")
             self.destroy_new_patient()
         
+#--------------------------------------------------------------------NEW PAITENT DESTROY METHOD---------------------------------------------------------------------
 
     def destroy_new_patient(self):
         self.new_p_frame.destroy()
         self.create_main_menu()
 
-        
+#--------------------------------------------------------------------NEW DOCTOR METHOD---------------------------------------------------------------------
+
     def add_doctor(self):
 
         self.menu_frame.destroy()
@@ -375,9 +385,18 @@ class HospitalManagementSystem:
         self.back = tk.Button(self.add_d_frame, text="BACK",command=self.destory_add_dr)
         self.back.grid(row=55, column=1, padx=5, pady=5)
 
+#--------------------------------------------------------------------NEW DCOTOR INSERT METHOD---------------------------------------------------------------------
+
+    def 
+
+
+#--------------------------------------------------------------------NEW DOCTOR DESTORY METHOD---------------------------------------------------------------------
+
     def destory_add_dr(self):
         self.add_d_frame.destroy()
         self.create_main_menu()
+
+#--------------------------------------------------------------------OLD PAITENT CHECK METHOD---------------------------------------------------------------------
         
     def check_patient(self):
         
@@ -434,12 +453,14 @@ class HospitalManagementSystem:
         self.check_p_search.grid(row=60,column=0,padx=5,pady=5)
 
         #OLD PAITENT DELETE BUTTON
-        self.check_p_delete=tk.Button(self.check_p_frame,text="Delete Details")
+        self.check_p_delete=tk.Button(self.check_p_frame,text="Delete Details",command=self.delete_old_paitent)
         self.check_p_delete.grid(row=60,column=1,padx=5,pady=5)
 
         #BACK BUTTON
         self.back = tk.Button(self.check_p_frame, text="BACK",command=self.destory_check_patient)
         self.back.grid(row=65, columnspan=2, padx=5, pady=5)
+
+#--------------------------------------------------------------------OLD PAITENT SEARCH METHOD---------------------------------------------------------------------
 
     def check_old_paitent(self):
         if self.check_p_num_entry.get()=="":
@@ -464,9 +485,29 @@ class HospitalManagementSystem:
                 msg.showinfo("Search Status","Mobile Number is not found")
             self.conn.close()
 
+#--------------------------------------------------------------------OLD PAITENT DELETE METHOD---------------------------------------------------------------------
+
+    def delete_old_paitent(self):
+        if self.check_p_num_entry.get()=="":
+            msg.showinfo("Delete Status","Mobile Number Is Mandatory")
+        else:
+            self.conn=self.create_conn()
+            self.cursor=self.conn.cursor()
+            self.q="delete from paitent where pnum=%s"
+            self.args=(self.check_p_num_entry.get(),)
+            self.cursor.execute(self.q,self.args)
+            self.conn.commit()
+            self.conn.close()
+            msg.showinfo("Delete Status","Data Deleted Successfully")
+            
+
+#--------------------------------------------------------------------CHECK PAITENT DESTROY METHOD---------------------------------------------------------------------            
+
     def destory_check_patient(self):
         self.check_p_frame.destroy()
         self.create_main_menu()
+
+#--------------------------------------------------------------------OLD DOCTOR METHOD---------------------------------------------------------------------
 
     def check_doctor(self):
 
@@ -535,6 +576,16 @@ class HospitalManagementSystem:
         #BACK BUTTON
         self.back = tk.Button(self.check_d_frame, text="BACK",command=self.destory_check_doctor)
         self.back.grid(row=60, columnspan=2, padx=5, pady=5)
+
+#--------------------------------------------------------------------OLD DOCTOR UPDATE METHOD---------------------------------------------------------------------
+
+
+
+#--------------------------------------------------------------------OLD DOCTOR DELETE METHOD---------------------------------------------------------------------
+
+
+
+#--------------------------------------------------------------------OLD DOCTOR DESTROY METHOD---------------------------------------------------------------------        
 
     def destory_check_doctor(self):
         self.check_d_frame.destroy()
