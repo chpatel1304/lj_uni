@@ -6,186 +6,283 @@
     <title>HOME PAGE</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        iframe
-        {
+        iframe {
             width: 100%;
-            height: 90PX;
+            height: 90px;
             border: 2px solid;
         }
   
-    .navbar-brand {
-      font-size: 24px;
-      font-weight: bold;
-    }
-    .navbar-nav .nav-link {
-      color: #fff;
-      font-weight: bold;
-    }
-    .navbar-nav .nav-link:hover {
-      color: #00ffbf; /* Change this to your desired hover color */
-    }
-    .navbar {
-      background-color: rgb(87, 191, 226); /* Gradient background */
-    }
-    .navbar-toggler {
-      border-color: #00ffbf; /* Button color */
-    }
-    .navbar-toggler-icon {
-      background-color: #00ffbf; /* Icon color */
-    }
-    .vertical-navbar {
-      background-color: rgb(87, 191, 226); /* White background */
-      width: 200px;
-      height: max-content;
-      padding: 20px;
-      border-right: 1px solid #ccc; /* Add border for separation */
-    }
-  </style>
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #00ffbf; /* Change this to your desired hover color */
+        }
+        .navbar {
+            background-color: rgb(87, 191, 226); /* Gradient background */
+        }
+        .navbar-toggler {
+            border-color: #00ffbf; /* Button color */
+        }
+        .navbar-toggler-icon {
+            background-color: #00ffbf; /* Icon color */
+        }
+        .vertical-navbar {
+            background-color: rgb(87, 191, 226); /* White background */
+            width: 200px;
+            height: max-content;
+            padding: 20px;
+            border-right: 1px solid #ccc; /* Add border for separation */
+        }
+        .carousel-container {
+          position: absolute;
+          top: 90px;
+          right: 0;
+          left: 200px; /* Adjust based on the width of the vertical navbar */
+          bottom: 0;
+          overflow: hidden;
+        }
+        .carousel {
+            width: 100%;
+            height: 100%;
+        }
+        .newly-added {
+            margin-left: 200px; /* Adjust based on the width of the vertical navbar */
+            padding: 20px;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .image-box {
+            width: calc(33.33% - 20px); /* Adjust based on desired spacing */
+            margin: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
     <iframe src="proto_1.html"></iframe>
+
     <!-- Vertical Navbar -->
-  <div class="vertical-navbar">
-    <ul class="navbar-nav">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="mercedesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Mercedes
-        </a>
-        <div class="dropdown-menu" aria-labelledby="mercedesDropdown">
-          <a class="dropdown-item" href="#">Model A</a>
-          <a class="dropdown-item" href="#">Model B</a>
-          <a class="dropdown-item" href="#">Model C</a>
-          <a class="dropdown-item" href="#">Model D</a>
-          <a class="dropdown-item" href="#">Model E</a>
+    <div class="vertical-navbar">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="mercedesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Mercedes
+            </a>
+            <div class="dropdown-menu" aria-labelledby="mercedesDropdown">
+              <a class="dropdown-item" href="#">Model A</a>
+              <a class="dropdown-item" href="#">Model B</a>
+              <a class="dropdown-item" href="#">Model C</a>
+              <a class="dropdown-item" href="#">Model D</a>
+              <a class="dropdown-item" href="#">Model E</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="bmwDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              BMW
+            </a>
+            <div class="dropdown-menu" aria-labelledby="bmwDropdown">
+              <a class="dropdown-item" href="#">Model 1</a>
+              <a class="dropdown-item" href="#">Model 2</a>
+              <a class="dropdown-item" href="#">Model 3</a>
+              <a class="dropdown-item" href="#">Model 4</a>
+              <a class="dropdown-item" href="#">Model 5</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="audiDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Audi
+            </a>
+            <div class="dropdown-menu" aria-labelledby="audiDropdown">
+              <a class="dropdown-item" href="#">Model X</a>
+              <a class="dropdown-item" href="#">Model Y</a>
+              <a class="dropdown-item" href="#">Model Z</a>
+              <a class="dropdown-item" href="#">Model R</a>
+              <a class="dropdown-item" href="#">Model S</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="rollsRoyceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Rolls Royce
+            </a>
+            <div class="dropdown-menu" aria-labelledby="rollsRoyceDropdown">
+              <a class="dropdown-item" href="#">Model Phantom</a>
+              <a class="dropdown-item" href="#">Model Ghost</a>
+              <a class="dropdown-item" href="#">Model Wraith</a>
+              <a class="dropdown-item" href="#">Model Dawn</a>
+              <a class="dropdown-item" href="#">Model Cullinan</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="maseratiDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Maserati
+            </a>
+            <div class="dropdown-menu" aria-labelledby="maseratiDropdown">
+              <a class="dropdown-item" href="#">Model GranTurismo</a>
+              <a class="dropdown-item" href="#">Model Ghibli</a>
+              <a class="dropdown-item" href="#">Model Quattroporte</a>
+              <a class="dropdown-item" href="#">Model Levante</a>
+              <a class="dropdown-item" href="#">Model MC20</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="lamborghiniDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Lamborghini
+            </a>
+            <div class="dropdown-menu" aria-labelledby="lamborghiniDropdown">
+              <a class="dropdown-item" href="#">Model Aventador</a>
+              <a class="dropdown-item" href="#">Model Huracan</a>
+              <a class="dropdown-item" href="#">Model Urus</a>
+              <a class="dropdown-item" href="#">Model Centenario</a>
+              <a class="dropdown-item" href="#">Model Sian</a>
+            </div>
+          </li>
+          <!-- Additional Nav Links -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="toyotaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Toyota
+            </a>
+            <div class="dropdown-menu" aria-labelledby="toyotaDropdown">
+              <a class="dropdown-item" href="#">Model Corolla</a>
+              <a class="dropdown-item" href="#">Model Camry</a>
+              <a class="dropdown-item" href="#">Model RAV4</a>
+              <a class="dropdown-item" href="#">Model Highlander</a>
+              <a class="dropdown-item" href="#">Model Prius</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="rangeRoverDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Range Rover
+            </a>
+            <div class="dropdown-menu" aria-labelledby="rangeRoverDropdown">
+              <a class="dropdown-item" href="#">Model Evoque</a>
+              <a class="dropdown-item" href="#">Model Velar</a>
+              <a class="dropdown-item" href="#">Model Sport</a>
+              <a class="dropdown-item" href="#">Model Vogue</a>
+              <a class="dropdown-item" href="#">Model Defender</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="mahindraDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Mahindra
+            </a>
+            <div class="dropdown-menu" aria-labelledby="mahindraDropdown">
+              <a class="dropdown-item" href="#">Model Thar</a>
+              <a class="dropdown-item" href="#">Model XUV300</a>
+              <a class="dropdown-item" href="#">Model Scorpio</a>
+              <a class="dropdown-item" href="#">Model XUV500</a>
+              <a class="dropdown-item" href="#">Model Bolero</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="teslaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Tesla
+            </a>
+            <div class="dropdown-menu" aria-labelledby="teslaDropdown">
+              <a class="dropdown-item" href="#">Model S</a>
+              <a class="dropdown-item" href="#">Model 3</a>
+              <a class="dropdown-item" href="#">Model X</a>
+              <a class="dropdown-item" href="#">Model Y</a>
+              <a class="dropdown-item" href="#">Roadster</a>
+            </div>
+          </li>
+        </ul>
+        <!-- Contact info -->
+        <br>
+        <br>
+        <div style="color: white; font-weight: bolder;">
+            ADD: Times Sqaure, Sindu Bhavan Road Ahmedabad - 380060 
         </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="bmwDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          BMW
-        </a>
-        <div class="dropdown-menu" aria-labelledby="bmwDropdown">
-          <a class="dropdown-item" href="#">Model 1</a>
-          <a class="dropdown-item" href="#">Model 2</a>
-          <a class="dropdown-item" href="#">Model 3</a>
-          <a class="dropdown-item" href="#">Model 4</a>
-          <a class="dropdown-item" href="#">Model 5</a>
+        <br>
+        <div style="color: white; font-weight: bolder;">
+            TIMMING : MON - SAT (11:00 AM TO 7:00 PM)
         </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="audiDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Audi
-        </a>
-        <div class="dropdown-menu" aria-labelledby="audiDropdown">
-          <a class="dropdown-item" href="#">Model X</a>
-          <a class="dropdown-item" href="#">Model Y</a>
-          <a class="dropdown-item" href="#">Model Z</a>
-          <a class="dropdown-item" href="#">Model R</a>
-          <a class="dropdown-item" href="#">Model S</a>
+        <br>
+        <div style="color: white; font-weight: bolder;">
+            MOB : 7567062405
         </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="rollsRoyceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Rolls Royce
-        </a>
-        <div class="dropdown-menu" aria-labelledby="rollsRoyceDropdown">
-          <a class="dropdown-item" href="#">Model Phantom</a>
-          <a class="dropdown-item" href="#">Model Ghost</a>
-          <a class="dropdown-item" href="#">Model Wraith</a>
-          <a class="dropdown-item" href="#">Model Dawn</a>
-          <a class="dropdown-item" href="#">Model Cullinan</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="maseratiDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Maserati
-        </a>
-        <div class="dropdown-menu" aria-labelledby="maseratiDropdown">
-          <a class="dropdown-item" href="#">Model GranTurismo</a>
-          <a class="dropdown-item" href="#">Model Ghibli</a>
-          <a class="dropdown-item" href="#">Model Quattroporte</a>
-          <a class="dropdown-item" href="#">Model Levante</a>
-          <a class="dropdown-item" href="#">Model MC20</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="lamborghiniDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Lamborghini
-        </a>
-        <div class="dropdown-menu" aria-labelledby="lamborghiniDropdown">
-          <a class="dropdown-item" href="#">Model Aventador</a>
-          <a class="dropdown-item" href="#">Model Huracan</a>
-          <a class="dropdown-item" href="#">Model Urus</a>
-          <a class="dropdown-item" href="#">Model Centenario</a>
-          <a class="dropdown-item" href="#">Model Sian</a>
-        </div>
-      </li>
-      <!-- Additional Nav Links -->
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="toyotaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Toyota
-        </a>
-        <div class="dropdown-menu" aria-labelledby="toyotaDropdown">
-          <a class="dropdown-item" href="#">Model Corolla</a>
-          <a class="dropdown-item" href="#">Model Camry</a>
-          <a class="dropdown-item" href="#">Model RAV4</a>
-          <a class="dropdown-item" href="#">Model Highlander</a>
-          <a class="dropdown-item" href="#">Model Prius</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="rangeRoverDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Range Rover
-        </a>
-        <div class="dropdown-menu" aria-labelledby="rangeRoverDropdown">
-          <a class="dropdown-item" href="#">Model Evoque</a>
-          <a class="dropdown-item" href="#">Model Velar</a>
-          <a class="dropdown-item" href="#">Model Sport</a>
-          <a class="dropdown-item" href="#">Model Vogue</a>
-          <a class="dropdown-item" href="#">Model Defender</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="mahindraDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Mahindra
-        </a>
-        <div class="dropdown-menu" aria-labelledby="mahindraDropdown">
-          <a class="dropdown-item" href="#">Model Thar</a>
-          <a class="dropdown-item" href="#">Model XUV300</a>
-          <a class="dropdown-item" href="#">Model Scorpio</a>
-          <a class="dropdown-item" href="#">Model XUV500</a>
-          <a class="dropdown-item" href="#">Model Bolero</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="teslaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Tesla
-        </a>
-        <div class="dropdown-menu" aria-labelledby="teslaDropdown">
-          <a class="dropdown-item" href="#">Model S</a>
-          <a class="dropdown-item" href="#">Model 3</a>
-          <a class="dropdown-item" href="#">Model X</a>
-          <a class="dropdown-item" href="#">Model Y</a>
-          <a class="dropdown-item" href="#">Roadster</a>
-        </div>
-      </li>
-    </ul>
-    <br>
-    <br>
-    <div style="color: white; font-weight: bolder;">
-        ADD: Times Sqaure, Sindu Bhavan Road Ahmedabad - 380060 
     </div>
-    <br>
-    <div style="color: white; font-weight: bolder;">
-        TIMMING : MON - SAT (11:00 AM TO 7:00 PM)
+
+    <!-- Carousel Slider -->
+    <div class="carousel-container">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <img src="c1.jfif" class="d-block w-100" alt="...">
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <img src="c2.jfif" class="d-block w-100" alt="...">
+                </div>
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <img src="c3.jfif" class="d-block w-100" alt="...">
+                </div>
+                <!-- Slide 4 -->
+                <div class="carousel-item">
+                    <img src="c4.jfif" class="d-block w-100" alt="...">
+                </div>
+                <!-- Slide 5 -->
+                <div class="carousel-item">
+                    <img src="c5.jfif" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleSlidesOnly" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleSlidesOnly" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
     </div>
-    <br>
-    <div style="color: white; font-weight: bolder;">
-        MOB : 7567062405
+
+    <!-- Newly Added Section -->
+    <div class="newly-added">
+        <h3>Newly Added</h3>
+        <div class="image-container">
+            <div class="image-box">
+                <img src="c2.jfif" alt="Image 1">
+            </div>
+            <div class="image-box">
+                <img src="c2.jfif" alt="Image 2">
+            </div>
+            <div class="image-box">
+                <img src="c2.jfif" alt="Image 3">
+            </div>
+            <div class="image-box">
+                <img src="c2.jfif" alt="Image 4">
+            </div>
+            <div class="image-box">
+                <img src="c2.jfif" alt="Image 5">
+            </div>
+            <div class="image-box">
+                <img src="c2.jfif" alt="Image 6">
+            </div>
+        </div>
     </div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
