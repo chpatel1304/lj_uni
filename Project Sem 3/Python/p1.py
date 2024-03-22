@@ -361,33 +361,53 @@ class HospitalManagementSystem:
 
         #NEW DOCTOR SPECIALITY
         self.add_dr_special=tk.Label(self.add_d_frame,text="Doctor Speciality :")
-        self.add_dr_special.grid(row=45,column=0,padx=5,pady=5)
+        self.add_dr_special.grid(row=50,column=0,padx=5,pady=5)
         self.add_dr_special_entry=tk.Entry(self.add_d_frame)
-        self.add_dr_special_entry.grid(row=45,column=1,padx=5,pady=5)
+        self.add_dr_special_entry.grid(row=50,column=1,padx=5,pady=5)
 
         #NEW DOCTOR SALARY AMOUNT
         self.add_dr_salary=tk.Label(self.add_d_frame,text="SALARY :")
-        self.add_dr_salary.grid(row=50,column=0,padx=5,pady=5)
+        self.add_dr_salary.grid(row=55,column=0,padx=5,pady=5)
         self.add_dr_salary_entry=tk.Entry(self.add_d_frame)
-        self.add_dr_salary_entry.grid(row=50,column=1,padx=5,pady=5)
+        self.add_dr_salary_entry.grid(row=55,column=1,padx=5,pady=5)
         
         #NEW DOCTOR EXPERIENCE
         self.add_dr_exp=tk.Label(self.add_d_frame,text="EXPERIENCE IN YEARS")
-        self.add_dr_exp.grid(row=50,column=0,padx=5,pady=5)
+        self.add_dr_exp.grid(row=60,column=0,padx=5,pady=5)
         self.add_dr_exp_entry=tk.Entry(self.add_d_frame)
-        self.add_dr_exp_entry.grid(row=50,column=1,padx=5,pady=5)
+        self.add_dr_exp_entry.grid(row=60,column=1,padx=5,pady=5)
 
         #NEW DOCTOR ADD BUTTON
-        self.add_dr_add=tk.Button(self.add_d_frame,text="ADD Doctor")
-        self.add_dr_add.grid(row=55,column=0,padx=5,pady=5)
+        self.add_dr_add=tk.Button(self.add_d_frame,text="ADD Doctor",command=self.new_doctor_insert)
+        self.add_dr_add.grid(row=65,column=0,padx=5,pady=5)
 
         #BACK BUTTON
         self.back = tk.Button(self.add_d_frame, text="BACK",command=self.destory_add_dr)
-        self.back.grid(row=55, column=1, padx=5, pady=5)
+        self.back.grid(row=65, column=1, padx=5, pady=5)
 
 #--------------------------------------------------------------------NEW DCOTOR INSERT METHOD---------------------------------------------------------------------
 
     def new_doctor_insert(self):
+        if self.add_dr_name_entry.get()=="" or self.add_dr_dob_entry.get()=="" or self.add_dr_num_entry.get()=="" or self.add_dr_special_entry.get()=="" or self.add_dr_salary_entry.get()=="" or self.add_dr_exp_entry.get()=="" :
+            msg.showinfo("Add New Doctor","All Feilds Are Mandataory !")
+        else:
+            dname=self.add_dr_name_entry.get()
+            ddob=self.add_dr_dob_entry.get()
+            dnum=self.add_dr_num_entry.get()
+            dspe=self.add_dr_special_entry.get()
+            dsalary=self.add_dr_salary_entry.get()
+            dexp=self.add_dr_exp_entry.get()
+
+            self.conn=self.create_conn()
+            self.cursor=self.conn.cursor()
+            self.q="insert into doctor (dname,ddob,dnum,dspe,dsalary,dexp) values (%s,%s,%s,%s,%s,%s)"
+            self.args=(dname,ddob,dnum,dspe,dsalary,dexp)
+            self.cursor.execute(self.q,self.args)
+            self.conn.commit()
+            self.conn.close()
+
+            msg.showinfo("Add New Doctor","Doctore Added Successfully !!")
+            self.destory_add_dr()
         
 
 
@@ -522,7 +542,7 @@ class HospitalManagementSystem:
         self.image=Image.open("aa.jpg")
         self.photo=ImageTk.PhotoImage(self.image)
         self.l1=tk.Label(self.check_d_frame,image=self.photo)
-        self.l1.grid(row=15, columnspan=2, padx=10, pady=10)
+        self.l1.grid(row=15, columnspan=3, padx=10, pady=10)
 
         #OLD DOCTOR ID
         self.check_d_id=tk.Label(self.check_d_frame,text="Doctor ID :")
@@ -550,41 +570,80 @@ class HospitalManagementSystem:
 
         #OLD DOCTOR SPECIALITY
         self.check_d_special=tk.Label(self.check_d_frame,text="Doctor Speciality :")
-        self.check_d_special.grid(row=45,column=0,padx=5,pady=5)
+        self.check_d_special.grid(row=50,column=0,padx=5,pady=5)
         self.check_d_special_entry=tk.Entry(self.check_d_frame)
-        self.check_d_special_entry.grid(row=45,column=1,padx=5,pady=5)
+        self.check_d_special_entry.grid(row=50,column=1,padx=5,pady=5)
 
         #OLD DOCTOR SALARY AMOUNT
         self.check_d_salary=tk.Label(self.check_d_frame,text="SALARY :")
-        self.check_d_salary.grid(row=50,column=0,padx=5,pady=5)
+        self.check_d_salary.grid(row=55,column=0,padx=5,pady=5)
         self.check_d_salary_entry=tk.Entry(self.check_d_frame)
-        self.check_d_salary_entry.grid(row=50,column=1,padx=5,pady=5)
+        self.check_d_salary_entry.grid(row=55,column=1,padx=5,pady=5)
         
         #OLD DOCTOR EXPERIENCE
         self.check_d_exp=tk.Label(self.check_d_frame,text="EXPERIENCE IN YEARS")
-        self.check_d_exp.grid(row=50,column=0,padx=5,pady=5)
+        self.check_d_exp.grid(row=60,column=0,padx=5,pady=5)
         self.check_d_exp_entry=tk.Entry(self.check_d_frame)
-        self.check_d_exp_entry.grid(row=50,column=1,padx=5,pady=5)
+        self.check_d_exp_entry.grid(row=60,column=1,padx=5,pady=5)
+
+        #OLD DOCTOR SEARCH BUTTON
+        self.check_d_ser=tk.Button(self.check_d_frame,text="SEARCH Doctor",command=self.search_doctor)
+        self.check_d_ser.grid(row=65,column=0,padx=5,pady=5)
 
         #OLD DOCTOR DELETE BUTTON
-        self.check_d_del=tk.Button(self.check_d_frame,text="DELETE Doctor")
-        self.check_d_del.grid(row=55,column=0,padx=5,pady=5)
+        self.check_d_del=tk.Button(self.check_d_frame,text="DELETE Doctor",command=self.delete_doctor)
+        self.check_d_del.grid(row=65,column=1,padx=5,pady=5)
 
         #OLD DOCTOR UPDATE BUTTON
-        self.check_d_upd=tk.Button(self.check_d_frame,text="UPDATE Doctor")
-        self.check_d_upd.grid(row=55,column=1,padx=5,pady=5)
+        self.check_d_upd=tk.Button(self.check_d_frame,text="UPDATE Doctor",command=self.update_doctor)
+        self.check_d_upd.grid(row=65,column=2,padx=5,pady=5)
 
         #BACK BUTTON
         self.back = tk.Button(self.check_d_frame, text="BACK",command=self.destory_check_doctor)
-        self.back.grid(row=60, columnspan=2, padx=5, pady=5)
+        self.back.grid(row=70, columnspan=3, padx=5, pady=5)
 
-#--------------------------------------------------------------------OLD DOCTOR UPDATE METHOD---------------------------------------------------------------------
-
-
+#--------------------------------------------------------------------OLD DOCTOR SEARCH METHOD---------------------------------------------------------------------
+    def search_doctor(self):
+        if self.check_d_num_entry.get()=="":
+            msg.showinfo("Search Status","Mobile Number Is Mandatory ")
+        else:
+            self.conn=self.create_conn()
+            self.cursor=self.conn.cursor()
+            self.q="select * from doctor where dnum=%s"
+            self.args=(self.check_d_num_entry.get(),)
+            self.cursor.execute(self.q,self.args)
+            self.row=self.cursor.fetchall()
+            if self.row:
+                for i in self.row:
+                    self.check_d_id_entry.insert(0,i[0])
+                    self.check_d_name_entry.insert(1,i[1])
+                    self.check_d_dob_entry.insert(2,i[2])
+                    #self.check_d_num_entry.insert(3,i[3])
+                    self.check_d_special_entry.insert(4,i[4])
+                    self.check_d_salary_entry.insert(5,i[5])
+                    self.check_d_exp_entry.insert(6,i[6])
+            else:
+                msg.showinfo("Search Status ","Mobile Number Is Not Found")
+            self.conn.close()
 
 #--------------------------------------------------------------------OLD DOCTOR DELETE METHOD---------------------------------------------------------------------
-
-
+    def delete_doctor(self):
+        if self.check_d_num_entry.get()=="":
+            msg.showinfo("Delete Status","Mobile Number Is Mandatory")
+        else:
+            self.conn=self.create_conn()
+            self.cursor=self.conn.cursor()
+            self.q="delete from doctor where dnum=%s"
+            self.args=(self.check_d_num_entry.get(),)
+            self.cursor.execute(self.q,self.args)
+            self.conn.commit()
+            self.conn.close()
+            msg.showinfo("Delete Status","Data Deleted Successfully")
+            
+#------------------------------------------------------------------OLD DOCTOR UPDATE METHOD -----------------------------------------------------------------
+    def update_doctor(self):
+        pass
+        
 
 #--------------------------------------------------------------------OLD DOCTOR DESTROY METHOD---------------------------------------------------------------------        
 
