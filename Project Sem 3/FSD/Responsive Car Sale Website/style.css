@@ -665,4 +665,67 @@ header.shadow #search-icon{
     background-color: #0056b3;
 }
 
+.porsche-section {
+    padding-top: 70px;
+}
 
+.porsche-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.porsche-car {
+    background-color: white;
+    width: 1440px;
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+.car-image img {
+    width: 500px;
+    height: auto;
+}
+
+.car-info {
+    padding-left: 50px;
+}
+.pagination-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.pagination-link {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #000;
+    transition: all 0.3s ease; 
+    position: relative;
+}
+
+.pagination-link:hover {
+    color: red; 
+}
+
+.pagination-link:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid red; 
+    transition: all 0.3s ease;
+}
+
+.pagination-link.active {
+    font-weight: bold;
+    color: red;
+}
+
+.pagination-link.first, .pagination-link.last {
+    background-color: #f2f2f2; 
+}
