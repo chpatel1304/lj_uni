@@ -642,7 +642,19 @@ class HospitalManagementSystem:
             
 #------------------------------------------------------------------OLD DOCTOR UPDATE METHOD -----------------------------------------------------------------
     def update_doctor(self):
-        
+        if self.check_d_id_entry.get()=="" or self.check_d_name_entry.get()=="" or self.check_d_dob_entry.get()=="" or self.check_d_num_entry.get()=="" or self.check_d_special_entry.get()=="" or self.check_d_salary_entry.get()=="" or self.check_d_exp_entry.get()=="":
+            msg.showinfo("Update Status","All Fields Are Mandatory")
+        else:
+            self.conn=self.create_conn()
+            self.cursor=self.conn.cursor()
+            self.q="update doctor set did=%s,dname=%s,ddob=%s,dnum=%s,dspe=%s,dsalary=%s,dexp=%s where dnum=%s"
+            self.args=(self.check_d_id_entry.get(),self.check_d_name_entry.get(),self.check_d_dob_entry.get(),self.check_d_num_entry.get(),self.check_d_special_entry.get(),self.check_d_salary_entry.get(),self.check_d_exp_entry.get(),self.check_d_num_entry.get())
+            self.cursor.execute(self.q,self.args)
+            self.conn.commit()
+            self.conn.close()
+            msg.showinfo("Update Status","Data Updated Succesfully !")
+            self.destory_check_doctor()
+            
         
 
 #--------------------------------------------------------------------OLD DOCTOR DESTROY METHOD---------------------------------------------------------------------        
