@@ -552,6 +552,14 @@ header.shadow #search-icon{
     .about-text h2 {
       font-size: 1.4rem;
     }
+    .porsche-car{
+        flex-direction: column;
+    }
+    
+    .car-info{
+        height: 200px;
+        
+    }
   }
   @media (max-width: 607px) {
     .footer-container {
