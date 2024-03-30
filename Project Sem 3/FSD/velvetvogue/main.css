@@ -1,0 +1,124 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1000;
+    } 
+    video {
+        min-width: 80%; /* Set minimum width */
+        min-height: 100px; /* Set minimum height */
+    }
+    .container1{
+        height: 220px; 
+        background-color: #FCF4DE;
+        transition: height 0.5s ease;  
+    }
+    #rm{
+        display:block;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .link-container::before {
+        background-image: url('whatsapp.png');
+        background-size: 20px 20px;
+        display: inline-block;
+        width: 20px;
+        padding: 0px 2px;
+        height: 20px;
+        content: "";
+        margin-right: 5px; /* Adjust the margin-right value as needed */
+    }
+    .link-container {
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        z-index: 1000;
+        text-decoration: none;
+        color: #250822; 
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+    }
+    @media(max-width: 575px)
+    {
+        .container1{
+            height: 50px; /* Decreased height */
+        }
+        #rm
+        {
+            display:none !important ;
+        }
+        .isize{
+            margin: 30px;
+        }
+        .link-container {
+            top: 16px;
+            left: 10px;
+        }
+        .fsize {
+            font: size 18px; /* Adjust the font size according to your preference */
+        }
+    }
+    @media (max-width: 768px) {
+        .fsize {
+            font-size: 18px; /* Adjust the font size according to your preference */
+        }
+        .branches {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .branches p {
+            margin: 5px 0;
+        }
+        .col-md-4 {
+            margin-bottom: 20px; /* Increase spacing between columns */
+        }
+
+        .footer-logo {
+            max-width: 100px; /* Adjust logo size */
+        }
+
+        /* Additional styling for social icons */
+        .social-icons a {
+            margin-right: 10px; /* Increase spacing between social icons */
+        }
+        
+    }
+    @media (max-width: 638px )and (min-width: 575px) {
+        .fsize {
+            font-size: 14px; /* Adjust the font size according to your preference */
+        }
+    }
+    footer {
+    background-color: #FCF4DE; 
+    color: #343a40; 
+    padding: 20px 0; 
+    text-align: center; 
+    }
+    .footer-logo {
+        margin-top: 40px; /* Adjust margin as needed */
+        width: 200px; /* Set the width of the logo */
+    }
+    .social-icons a {
+        color: #343a40; /* Set the color of the icons */
+        margin-right: 10px; /* Add margin between icons */
+        font-size: 24px; /* Set the font size of the icons */
+    }
+    video {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        position: relative;
+        /* top: 50%;*/
+        right: -3%;
+        /* transform: translate(-50%, -50%); */
+    }
+    .carousel{
+        width: 100%;
+        height:300px;
+    }

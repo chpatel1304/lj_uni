@@ -1,0 +1,238 @@
+.hover-img-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin: 10px; /* Add margin */
+    border-radius: 10px; /* Add rounded corners */
+    overflow: hidden; /* Hide overflow */
+    border: 2px solid #FCF4DE; /* Border color */
+    background-color: #FCF4DE; /* Background color */
+}
+.hover-img-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 10px; /* Add padding */
+    border-radius: 10px; /* Add rounded corners */
+}
+.overlay-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+.hover-img-container:hover .overlay-img {
+    opacity: 1;
+    pointer-events: auto;
+}
+.buy-now-container {
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly */
+    padding: 10px 0;
+}
+.price-tag {
+    margin-left:30px; /* Remove default margin */
+    color: #000;
+    flex: 1; /* Take up available space */
+    text-align: left; /* Align text to the left */
+}
+.buy-now-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    /* text-align: center; */ /* Remove text alignment */
+}
+.buy-now-button:hover {
+    background-color: #0056b3;
+}
+.left-container, .right-container {
+    flex: 1;
+    text-align: center;
+}
+
+.right-container {
+    margin-left: 10px;
+}
+
+
+
+
+
+.navbar {
+    /* position: fixed; */
+    top: 0;
+    width: 100%;
+    background-color: #FCF4DE;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.navbar-brand img {
+    height: 40px; 
+}
+
+.navbar-nav {
+    margin: auto; /* Center align the navbar links */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 15px;
+}
+
+.navbar-nav .nav-link {
+    color: #343a40; /* Set default link color */
+    transition: color 0.3s, text-decoration 0.3s; /* Add transition effect */
+    
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff;
+    
+    
+}
+li{
+    list-style-type: none;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 836px) {
+    .navbar-nav .nav-link {
+        font-size: 14px; /* Decreased font size for smaller screens */
+    }
+    .navbar-brand img {
+        max-width: 40px; /* Decreased logo size for smaller screens */
+    }
+    .navbar {
+        padding: 7px;
+    }
+}
+@media (max-width: 767px) {
+    .navbar-nav .nav-link {
+        font-size: 12px; /* Decreased font size for smaller screens */
+    }
+    .navbar-brand img {
+        max-width: 60px; /* Decreased logo size for smaller screens */
+    }
+}
+
+    
+.discription{
+    text-align: center;
+    font-size: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: auto;
+}
+
+@media (max-width: 991px) and (min-width: 768px)  {
+    .buy-now-button {
+        padding: 4px 8px; 
+        font-size: 12px; 
+    }
+    .price-tag {
+    font-size: 16px;
+    margin-top: 4px;
+    }
+    .discription{
+        font-size:14px; 
+    }
+}
+
+/* Media query for even smaller screens */
+@media (max-width: 767px) and (min-width: 575px)  {
+    .buy-now-button {
+        padding: 2px 5px; /* Further decreased padding for even smaller screens */
+        font-size: 8px; /* Further decreased font size for even smaller screens */
+    }
+    .price-tag {
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 4px;
+    }
+    .discription{
+        font-size:10px; 
+    }
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+  }
+  .jumbotron {
+    background-color: white;
+    color: #333;
+
+  }
+  .store {
+    margin-bottom: 30px;
+    width: 100%;
+    height: 100%;
+  }
+  .store img {
+    width: 100%;
+    height: 50%;
+    border-radius: 5px;
+  }
+  .store-info {
+    background-color: #FCF4DE; 
+    padding: 10px;
+    border-radius: 5px;
+    height: 40%;
+    width: 100%;
+  }
+
+
+  #demo.carousel {
+    margin: 20px; /* Adjust margin as needed */
+    padding: 10px; /* Adjust padding as needed */
+    height: 400px; /* Adjust height as needed */
+    width: 80%; /* Adjust width as needed */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .carousel-item img {
+    height: 100%; /* Ensures the image fills the entire height of the carousel */
+  }
+  
+  .carousel-caption {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for captions */
+  }
+  
+  .carousel-caption h3,
+  .carousel-caption p {
+    color: white; /* Caption text color */
+  }
+
+  @media (max-width: 991px) and (min-width: 768px){
+    .store-info h4{
+        font-size: 19px;
+    }
+    .store-info p{
+        font-size: 12px;
+    }
+    
+}
+  @media(max-width: 425px){
+    .store-info h4{
+        font-size: 19px;
+    }
+    .store-info p{
+        font-size: 12px;
+    }
+  }
+
+  .bride_image{
+    height: 96%;
+  }
+  .bride_image1{
+    height: 82%;
+  }

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        body {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #ebe9da;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #e8d2e1;
+            padding: 20px;
+            border-radius: 8px;
+            width: 390px;
+            height: 75%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #e681b4;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <fieldset>
+        <legend align="center">GET A VIDEO SHOPPING EXPERIENCE</legend>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="country">Country:</label>
+    <select id="country" name="country" required>
+        <option value="canada">India</option>
+        <option value="usa">United States</option>
+        <option value="canada">Canada</option>
+        <option value="canada">UAE</option>
+        <option value="canada">Autralia</option>
+        <option value="canada">Singapore</option>
+
+        
+    </select>
+
+    <label for="whatsapp">WhatsApp Number:</label>
+<input type="tel" id="whatsapp" name="whatsapp" pattern="[0-9]{10}" placeholder="Enter a valid 10-digit number" required>
+
+   
+    <label for="outfits">Outfits:</label>
+    <input type="text" id="outfits" name="outfits" required>
+
+    <label for="occasion">Occasion:</label>
+    <input type="text" id="occasion" name="occasion" required>
+
+    <button type="submit">Submit the form</button>
+</fieldset>
+</form>
+
+</body>
+</html>
