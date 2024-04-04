@@ -257,7 +257,7 @@ class HospitalManagementSystem:
         self.new_paitent_d_entry=tk.Entry(self.new_p_frame)
         self.new_paitent_d_entry.grid(row=50,column=1,padx=5,pady=5)
 
-        doctor_names=["Dr.CHIRAG PATEL","Dr.KAVYA GOSALIA","Dr.YASVI VAGHASIYA","Dr.EKALKUMAR SORATHIYA","Dr.AGRESHA SHAH"]
+        doctor_names=self.fetch_dr()
         # DOCTOR DROPDOWN MENU
         self.doctor_label = tk.Label(self.new_p_frame, text="Select Doctor:")
         self.doctor_label.grid(row=55, column=0, padx=5, pady=5)
@@ -302,16 +302,35 @@ class HospitalManagementSystem:
             ppa=int(pf)-int(paid)
             dname = self.doctor_var.get()
 
-            self.conn=self.create_conn()
-            self.cursor=self.conn.cursor()
-            self.q="insert into paitent (pname,pdob,pnum,pd,dname,pf,ppa) values(%s,%s,%s,%s,%s,%s,%s)"
-            self.args=(pname,pdob,pnum,pd,dname,pf,ppa)
-            self.cursor.execute(self.q,self.args)
-            self.conn.commit()
-            self.conn.close()
+            if len(pnum)==10:
+                if pnum[0]=="9" or pnum[0]=="8" or pnum[0]=="7" or pnum[0]=="6": 
+                    if pdob[2]=="/" and pdob[5]=="/":
+                        if pdob[0:2].isdigit() and pdob[3:5].isdigit() and pdob[6:].isdigit():
+                            
+                            self.conn=self.create_conn()
+                            self.cursor=self.conn.cursor()
+                            self.q="insert into paitent (pname,pdob,pnum,pd,dname,pf,ppa) values(%s,%s,%s,%s,%s,%s,%s)"
+                            self.args=(pname,pdob,pnum,pd,dname,pf,ppa)
+                            self.cursor.execute(self.q,self.args)
+                            self.conn.commit()
+                            self.conn.close()
 
-            msg.showinfo("Add New Paitent","Paitent Added Successfully !!")
-            self.destroy_new_patient()
+                            msg.showinfo("Add New Paitent","Paitent Added Successfully !!")
+                            self.destroy_new_patient()
+                            
+                        else:
+                            msg.showinfo("Add New Patient","Please Enter DOB in DD/MM/YYYY !")
+
+                    else:
+                        msg.showinfo("Add New Patient","Please Enter DOB in DD/MM/YYYY !")
+                            
+                else:
+                    msg.showinfo("Add New Patient","Please Enter Perfect Mobile Number !")
+
+            else:
+                msg.showinfo("Add New Patient","Please Enter 10 Digits !")
+    
+            
         
 #--------------------------------------------------------------------NEW PAITENT DESTROY METHOD---------------------------------------------------------------------
 
@@ -397,19 +416,34 @@ class HospitalManagementSystem:
             dspe=self.add_dr_special_entry.get()
             dsalary=self.add_dr_salary_entry.get()
             dexp=self.add_dr_exp_entry.get()
+            
+            if len(dnum)==10:
+                if dnum[0]=="9" or dnum[0]=="8" or dnum[0]=="7" or dnum[0]=="6": 
+                    if ddob[2]=="/" and ddob[5]=="/":
+                        if ddob[0:2].isdigit() and ddob[3:5].isdigit() and ddob[6:].isdigit():
+                            
+                            self.conn=self.create_conn()
+                            self.cursor=self.conn.cursor()
+                            self.q="insert into doctor (dname,ddob,dnum,dspe,dsalary,dexp) values (%s,%s,%s,%s,%s,%s)"
+                            self.args=(dname,ddob,dnum,dspe,dsalary,dexp)
+                            self.cursor.execute(self.q,self.args)
+                            self.conn.commit()
+                            self.conn.close()
 
-            self.conn=self.create_conn()
-            self.cursor=self.conn.cursor()
-            self.q="insert into doctor (dname,ddob,dnum,dspe,dsalary,dexp) values (%s,%s,%s,%s,%s,%s)"
-            self.args=(dname,ddob,dnum,dspe,dsalary,dexp)
-            self.cursor.execute(self.q,self.args)
-            self.conn.commit()
-            self.conn.close()
+                            msg.showinfo("Add New Doctor","Doctore Added Successfully !!")
+                            self.destory_add_dr()
+                            
+                        else:
+                            msg.showinfo("Add New Doctor","Please Enter DOB in DD/MM/YYYY !")
 
-            msg.showinfo("Add New Doctor","Doctore Added Successfully !!")
-            self.destory_add_dr()
-        
+                    else:
+                        msg.showinfo("Add New Doctor","Please Enter DOB in DD/MM/YYYY !")
+                            
+                else:
+                    msg.showinfo("Add New Doctor","Please Enter Perfect Mobile Number !")
 
+            else:
+                msg.showinfo("Add New Doctor","Please Enter 10 Digits !")
 
 #--------------------------------------------------------------------NEW DOCTOR DESTORY METHOD---------------------------------------------------------------------
 
@@ -662,6 +696,17 @@ class HospitalManagementSystem:
     def destory_check_doctor(self):
         self.check_d_frame.destroy()
         self.create_main_menu()
+        
+#--------------------------------------------------------------Fetching All Doctors Name ------------------------------------------------------------
+    
+    def fetch_dr(self):
+        self.conn=self.create_conn()
+        self.cursor=self.conn.cursor()
+        self.q="select dname from doctor"
+        #self.args=(self.check_d_num_entry.get(),)
+        self.cursor.execute(self.q)
+        self.row=self.cursor.fetchall()
+        return list(self.row)
 
 def main():
     root = tk.Tk()
