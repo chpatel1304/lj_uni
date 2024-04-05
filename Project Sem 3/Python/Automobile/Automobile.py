@@ -72,39 +72,39 @@ class Automobile():
     def frame_signup(self):
         self.master.geometry("1000x1000")
 
-        self.signup_frame=tk.Frame(self.master,width=1000,height=1000,relief="groove",borderwidth=5)
+        self.signup_frame=tk.Frame(self.master,width=1200,height=1200,relief="groove",borderwidth=5)
         self.signup_frame['background']='#6AD4DD'
         self.signup_frame.pack()
 
         # Signup Items
         self.signup_label=tk.Label(self.signup_frame,bg='#6AD4DD',text="SIGN UP",font=self.fontObj)
-        self.signup_label.place(x=400,y=100)
+        self.signup_label.place(x=400,y=50)
         self.fname_label=tk.Label(self.signup_frame,text="First Name",bg="#6AD4DD",font=(20))
-        self.fname_label.place(x=320,y=200)
+        self.fname_label.place(x=320,y=150)
         self.fname_entry = tk.Entry(self.signup_frame,width=40)
-        self.fname_entry.place(x=530,y=205)
+        self.fname_entry.place(x=530,y=155)
         self.lname_label=tk.Label(self.signup_frame,text="Last Name",bg="#6AD4DD",font=(20))
-        self.lname_label.place(x=320,y=300)
+        self.lname_label.place(x=320,y=200)
         self.lname_entry = tk.Entry(self.signup_frame,width=40)
-        self.lname_entry.place(x=530,y=305)
+        self.lname_entry.place(x=530,y=205)
         self.mobile_label=tk.Label(self.signup_frame,text="Mobile",bg="#6AD4DD",font=(20))
-        self.mobile_label.place(x=320,y=400)
+        self.mobile_label.place(x=320,y=250)
         self.mobile_entry = tk.Entry(self.signup_frame,width=40)
-        self.mobile_entry.place(x=530,y=405)
+        self.mobile_entry.place(x=530,y=255)
         self.email_label=tk.Label(self.signup_frame,text="Email",bg="#6AD4DD",font=(20))
-        self.email_label.place(x=320,y=500)
+        self.email_label.place(x=320,y=300)
         self.email_entry = tk.Entry(self.signup_frame,width=40)
-        self.email_entry.place(x=530,y=505)
+        self.email_entry.place(x=530,y=305)
         self.password_label=tk.Label(self.signup_frame,text="Password",bg="#6AD4DD",font=(20))
-        self.password_label.place(x=320,y=600)
+        self.password_label.place(x=320,y=350)
         self.password_entry = tk.Entry(self.signup_frame,width=40)
-        self.password_entry.place(x=530,y=605)
+        self.password_entry.place(x=530,y=355)
 
         # Buttons
         self.signup_button = tk.Button(self.signup_frame,font=(30), text="Sign Up",command=self.signup,width=10)
-        self.signup_button.place(x=600,y=700)
+        self.signup_button.place(x=600,y=500)
         self.login_button = tk.Button(self.signup_frame,font=(30), text="Login",command=self.signupToLogin,width=10)
-        self.login_button.place(x=400,y=700)
+        self.login_button.place(x=400,y=500)
 
 
     def frame_home(self):
@@ -121,12 +121,12 @@ class Automobile():
 
         # Home Items
         self.image_paths = [
-            "F:\College\College Project\Sem-3 Projects\PYTHON\images\Sedan.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\images\Suv.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\images\Convertible.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\images\Luxury.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\images\Antique.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\images\Muscle.jpg"]
+            "images\Sedan.jpg",
+            "images\Suv.jpg",
+            "images\Convertible.jpg",
+            "images\Luxury.jpg",
+            "images\Antique.jpg",
+            "images\Muscle.jpg"]
 
         self.image_names = ["SEDAN","SUV","CONVERTABLE","LUXURY","ANTIQUE","MUSCLE"]
         self.image_frames = [self.homeToSedan,self.homeToSuv,self.homeToConvertible,self.homeToLuxury,self.homeToAntique,self.homeToMuscle]
@@ -136,7 +136,7 @@ class Automobile():
 
         for image_path in self.image_paths:
             self.image = Image.open(image_path)
-            self.photo = ImageTk.PhotoImage(self.image,height=50,width=50)
+            self.photo = ImageTk.PhotoImage(self.image.resize((275,150)))
             self.label = tk.Label(self.home_frame, image=self.photo)
             self.label.image = self.photo
             self.label.grid(row=self.row_count, column=self.column_count, padx=10, pady=9)
@@ -181,11 +181,11 @@ class Automobile():
         self.back_label.grid(row=0,column=1,sticky=W)
 
         self.sedan_paths = [
-            "F:\College\College Project\Sem-3 Projects\PYTHON\Sedan\camry.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\Sedan\ciaz.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\Sedan\city.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\Sedan\Verna.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\Sedan\Vertus.jpg"]
+            "Sedan\camry.jpg",
+            "Sedan\ciaz.jpg",
+            "Sedan\city.jpg",
+            "Sedan\Verna.jpg",
+            "Sedan\Vertus.jpg"]
 
         self.sedan_names = ["CAMRY","CIAZ","CITY","VERNA","VERTUS"]
         self.sedan_frames = [self.sedanToCamry,self.homeToSuv,self.homeToLuxury,self.homeToAntique,self.homeToMuscle]
@@ -195,7 +195,7 @@ class Automobile():
 
         for sedan_path in self.sedan_paths:
             self.image = Image.open(sedan_path)
-            self.photo = ImageTk.PhotoImage(self.image)
+            self.photo = ImageTk.PhotoImage(self.image.resize((275,150)))
             self.label = tk.Label(self.sedan_frame, image=self.photo)
             self.label.grid(row=self.row_count, column=self.column_count, padx=10, pady=9)
             self.label.image = self.photo
@@ -254,8 +254,8 @@ class Automobile():
         self.back_label=tk.Button(self.camry_frame,text="BACK",command=self.camryToSedan)
         self.back_label.grid(row=0,column=1,sticky=W)
 
-        self.image = Image.open("F:\College\College Project\Sem-3 Projects\PYTHON\Sedan-cars\camry.webp")
-        self.photo = ImageTk.PhotoImage(self.image)
+        self.image = Image.open("Sedan-cars\camry.webp")
+        self.photo = ImageTk.PhotoImage(self.image.resize((700,500)))
         self.label = tk.Label(self.camry_frame, image=self.photo)
         self.label.grid(row=1, column=1,columnspan=2, padx=10, pady=9)
         self.label.image = self.photo
@@ -308,7 +308,7 @@ class Automobile():
         self.submit_email_entry=tk.Entry(self.BookTestDrive_frame,width=30)
         self.submit_email_entry.grid(row=6,column=2,pady=10)
         self.submit_button=tk.Button(self.BookTestDrive_frame,text="SUBMIT",command=self.submit)
-        self.submit_button.grid(row=7,column=1,columnspan=2,pady=25)
+        self.submit_button.grid(row=7,column=1,columnspan=2,pady=10)
         
 
     # Submit
@@ -373,12 +373,12 @@ class Automobile():
         self.back_label.grid(row=0,column=1,sticky=W)
 
         self.suv_paths = [
-            "F:\College\College Project\Sem-3 Projects\PYTHON\suv\Thar.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\suv\scorpio.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\suv\Fortuner.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\suv\defender.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\suv\Range rover.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\suv\land cruiser.jpg"]
+            "suv\Thar.jpg",
+            "suv\scorpio.jpg",
+            "suv\Fortuner.jpg",
+            "suv\defender.jpg",
+            "suv\Range rover.jpg",
+            "suv\land cruiser.jpg"]
 
         self.suv_names = ["THAR","SCORPIO","FORTUNER","DEFENDER","RANGE ROVER","LAND CRUISER"]
         self.suv_frames = [self.homeToSedan,self.homeToSuv,self.homeToLuxury,self.homeToAntique,self.homeToMuscle,self.homeToMuscle]
@@ -388,7 +388,7 @@ class Automobile():
 
         for suv_path in self.suv_paths:
             self.image = Image.open(suv_path)
-            self.photo = ImageTk.PhotoImage(self.image)
+            self.photo = ImageTk.PhotoImage(self.image.resize((275,150)))
             self.label = tk.Label(self.suv_frame, image=self.photo)
             self.label.image = self.photo
             self.label.grid(row=self.row_count, column=self.column_count, padx=10, pady=9)
@@ -434,11 +434,11 @@ class Automobile():
         self.back_label.grid(row=0,column=1,sticky=W)
 
         self.convertible_paths = [
-            "F:\College\College Project\Sem-3 Projects\PYTHON\convertible\porsche911.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\convertible\Maserati GranCabrio.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\convertible\Bmwz4.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\convertible\Amg-e53.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\convertible\Amg-sl.jpg"]
+            "convertible\porsche911.jpg",
+            "convertible\Maserati GranCabrio.jpg",
+            "convertible\Bmwz4.jpg",
+            "convertible\Amg-e53.jpg",
+            "convertible\Amg-sl.jpg"]
 
         self.convertible_names = ["PORSCHE 911","MASERATI GRAN CABRIO","BMW Z4","AMG-E53","AMG-SL"]
         self.convertible_frames = [self.homeToSedan,self.homeToSuv,self.homeToLuxury,self.homeToAntique,self.homeToMuscle]
@@ -448,7 +448,7 @@ class Automobile():
 
         for convertible_path in self.convertible_paths:
             self.image = Image.open(convertible_path)
-            self.photo = ImageTk.PhotoImage(self.image)
+            self.photo = ImageTk.PhotoImage(self.image.resize((275,150)))
             self.label = tk.Label(self.convertible_frame, image=self.photo)
             self.label.image = self.photo
             self.label.grid(row=self.row_count, column=self.column_count, padx=10, pady=9)
@@ -494,11 +494,11 @@ class Automobile():
         self.back_label.grid(row=0,column=1,sticky=W)
 
         self.luxury_paths = [
-            "F:\College\College Project\Sem-3 Projects\PYTHON\Luxury\Rolls-Royce Ghost.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\Luxury\Mercedes-Benz Maybach S-Class.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\Luxury\Bentley continaltal.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\Luxury\BMW XM.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\Luxury\Aston Martin DBX.jpg"]
+            "Luxury\Rolls-Royce Ghost.jpg",
+            "Luxury\Mercedes-Benz Maybach S-Class.jpg",
+            "Luxury\Bentley continaltal.jpg",
+            "Luxury\BMW XM.jpg",
+            "Luxury\Aston Martin DBX.jpg"]
 
         self.luxury_names = ["ROLLS-ROYCE","MERCEDES-BENZ MAYBACH S-CLASS","BENTLEY CONTINALTAL","BMW XM","ASTON MARTIN"]
         self.luxury_frames = [self.homeToSedan,self.homeToSuv,self.homeToLuxury,self.homeToAntique,self.homeToMuscle]
@@ -508,7 +508,7 @@ class Automobile():
 
         for luxury_path in self.luxury_paths:
             self.image = Image.open(luxury_path)
-            self.photo = ImageTk.PhotoImage(self.image)
+            self.photo = ImageTk.PhotoImage(self.image.resize((275,150)))
             self.label = tk.Label(self.luxury_frame, image=self.photo)
             self.label.image = self.photo
             self.label.grid(row=self.row_count, column=self.column_count, padx=10, pady=9)
@@ -553,11 +553,11 @@ class Automobile():
         self.back_label.grid(row=0,column=1,sticky=W)
 
         self.antique_paths = [
-            "F:\College\College Project\Sem-3 Projects\PYTHON\Antique\Shelby Cobra.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\Antique\Rolls-Royce Dawn Drophead.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\Antique\Mercedes SL 300 Gullwing.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\Antique\McLaren F1.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\Antique\Classic Ford Deluxe.jpg"]
+            "Antique\Shelby Cobra.jpg",
+            "Antique\Rolls-Royce Dawn Drophead.jpg",
+            "Antique\Mercedes SL 300 Gullwing.jpg",
+            "Antique\McLaren F1.jpg",
+            "Antique\Classic Ford Deluxe.jpg"]
 
         self.antique_names = ["SHELBY COBRA","ROLLS-ROYCE DAWN DROPHEAD","MERCEDES SL 300 GULLWING","MCLAREN F1","CLASSIC FORD DELUXE"]
         self.antique_frames = [self.homeToSedan,self.homeToSuv,self.homeToLuxury,self.homeToAntique,self.homeToMuscle]
@@ -567,7 +567,7 @@ class Automobile():
 
         for antique_path in self.antique_paths:
             self.image = Image.open(antique_path)
-            self.photo = ImageTk.PhotoImage(self.image)
+            self.photo = ImageTk.PhotoImage(self.image.resize((275,150)))
             self.label = tk.Label(self.antique_frame, image=self.photo)
             self.label.image = self.photo
             self.label.grid(row=self.row_count, column=self.column_count, padx=10, pady=9)
@@ -612,11 +612,11 @@ class Automobile():
         self.back_label.grid(row=0,column=1,sticky=W)
 
         self.muscle_paths = [
-            "F:\College\College Project\Sem-3 Projects\PYTHON\muscle\Pontiac Catalina.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\muscle\Oldsmobile 442 W-30 Convertible.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\muscle\Dodge Coronet Super Bee A12.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\muscle\dodge charger.jpg",
-            "F:\College\College Project\Sem-3 Projects\PYTHON\muscle\Chevy Chevelle.jpg"]
+            "muscle\Pontiac Catalina.jpg",
+            "muscle\Oldsmobile 442 W-30 Convertible.jpg",
+            "muscle\Dodge Coronet Super Bee A12.jpg",
+            "muscle\dodge charger.jpg",
+            "muscle\Chevy Chevelle.jpg"]
 
         self.muscle_names = ["PANTIAC CATALINA","OLDSMOBILE 442 W-30 CONVERTIBLE","DODGE CORONET SUPER BEE A12","DODGE CHARGER","CHEVY CHEVELLE"]
         self.muscle_frames = [self.homeToSedan,self.homeToSuv,self.homeToLuxury,self.homeToAntique,self.homeToMuscle]
@@ -626,7 +626,7 @@ class Automobile():
 
         for muscle_path in self.muscle_paths:
             self.image = Image.open(muscle_path)
-            self.photo = ImageTk.PhotoImage(self.image)
+            self.photo = ImageTk.PhotoImage(self.image.resize((275,150)))
             self.label = tk.Label(self.muscle_frame, image=self.photo)
             self.label.image = self.photo
             self.label.grid(row=self.row_count, column=self.column_count, padx=10, pady=9)
