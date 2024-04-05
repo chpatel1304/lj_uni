@@ -244,7 +244,7 @@ class HospitalManagementSystem:
         self.new_paitent_dob.grid(row=40,column=0,padx=5,pady=5)
         self.new_paitent_dob_entry=tk.Entry(self.new_p_frame)
         self.new_paitent_dob_entry.grid(row=40,column=1,padx=5,pady=5)
-
+        
         #NEW PAITENT NUMBER
         self.new_paitent_num=tk.Label(self.new_p_frame,text="Phone Number :")
         self.new_paitent_num.grid(row=45,column=0,padx=5,pady=5)
@@ -301,34 +301,51 @@ class HospitalManagementSystem:
             paid=self.new_paitent_paid_entry.get()
             ppa=int(pf)-int(paid)
             dname = self.doctor_var.get()
-
-            if len(pnum)==10:
-                if pnum[0]=="9" or pnum[0]=="8" or pnum[0]=="7" or pnum[0]=="6": 
-                    if pdob[2]=="/" and pdob[5]=="/":
-                        if pdob[0:2].isdigit() and pdob[3:5].isdigit() and pdob[6:].isdigit():
+            
+            flag=0
+            #FETCHING NUMBER LIST
+            paitent_num_list=self.fetch_num_paitent()
+            
+            if pnum in paitent_num_list:
+                flag=1
+            else:
+                flag=0
+                
+            if flag==1:
+                
+                if len(pnum)==10:
+                    
+                    if pnum[0]=="9" or pnum[0]=="8" or pnum[0]=="7" or pnum[0]=="6": 
+                        
+                        if pdob[2]=="/" and pdob[5]=="/":
                             
-                            self.conn=self.create_conn()
-                            self.cursor=self.conn.cursor()
-                            self.q="insert into paitent (pname,pdob,pnum,pd,dname,pf,ppa) values(%s,%s,%s,%s,%s,%s,%s)"
-                            self.args=(pname,pdob,pnum,pd,dname,pf,ppa)
-                            self.cursor.execute(self.q,self.args)
-                            self.conn.commit()
-                            self.conn.close()
+                            if pdob[0:2].isdigit() and pdob[3:5].isdigit() and pdob[6:].isdigit():
+                                
+                                self.conn=self.create_conn()
+                                self.cursor=self.conn.cursor()
+                                self.q="insert into paitent (pname,pdob,pnum,pd,dname,pf,ppa) values(%s,%s,%s,%s,%s,%s,%s)"
+                                self.args=(pname,pdob,pnum,pd,dname,pf,ppa)
+                                self.cursor.execute(self.q,self.args)
+                                self.conn.commit()
+                                self.conn.close()
 
-                            msg.showinfo("Add New Paitent","Paitent Added Successfully !!")
-                            self.destroy_new_patient()
-                            
+                                msg.showinfo("Add New Paitent","Paitent Added Successfully !!")
+                                self.destroy_new_patient()
+                                
+                            else:
+                                msg.showinfo("Add New Patient","Please Enter DOB in DD/MM/YYYY !")
+
                         else:
                             msg.showinfo("Add New Patient","Please Enter DOB in DD/MM/YYYY !")
-
+                                
                     else:
-                        msg.showinfo("Add New Patient","Please Enter DOB in DD/MM/YYYY !")
-                            
-                else:
-                    msg.showinfo("Add New Patient","Please Enter Perfect Mobile Number !")
+                        msg.showinfo("Add New Patient","Please Enter Perfect Mobile Number !")
 
+                else:
+                    msg.showinfo("Add New Patient","Please Enter 10 Digits !")
+            
             else:
-                msg.showinfo("Add New Patient","Please Enter 10 Digits !")
+                msg.showinfo("Add New Patient","Number Already Exists !")
     
             
         
@@ -417,33 +434,51 @@ class HospitalManagementSystem:
             dsalary=self.add_dr_salary_entry.get()
             dexp=self.add_dr_exp_entry.get()
             
-            if len(dnum)==10:
-                if dnum[0]=="9" or dnum[0]=="8" or dnum[0]=="7" or dnum[0]=="6": 
-                    if ddob[2]=="/" and ddob[5]=="/":
-                        if ddob[0:2].isdigit() and ddob[3:5].isdigit() and ddob[6:].isdigit():
+            flag=0
+            #FETCHING DOCTOR NUMBERS
+            doctor_number=self.fetch_num_dr()
+            
+            if dnum in doctor_number:
+                flag=1
+            else:
+                flag=0
+            
+            
+            if flag==1:
+                
+                if len(dnum)==10:
+                    
+                    if dnum[0]=="9" or dnum[0]=="8" or dnum[0]=="7" or dnum[0]=="6": 
+                        
+                        if ddob[2]=="/" and ddob[5]=="/":
                             
-                            self.conn=self.create_conn()
-                            self.cursor=self.conn.cursor()
-                            self.q="insert into doctor (dname,ddob,dnum,dspe,dsalary,dexp) values (%s,%s,%s,%s,%s,%s)"
-                            self.args=(dname,ddob,dnum,dspe,dsalary,dexp)
-                            self.cursor.execute(self.q,self.args)
-                            self.conn.commit()
-                            self.conn.close()
+                            if ddob[0:2].isdigit() and ddob[3:5].isdigit() and ddob[6:].isdigit():
+                                
+                                self.conn=self.create_conn()
+                                self.cursor=self.conn.cursor()
+                                self.q="insert into doctor (dname,ddob,dnum,dspe,dsalary,dexp) values (%s,%s,%s,%s,%s,%s)"
+                                self.args=(dname,ddob,dnum,dspe,dsalary,dexp)
+                                self.cursor.execute(self.q,self.args)
+                                self.conn.commit()
+                                self.conn.close()
 
-                            msg.showinfo("Add New Doctor","Doctore Added Successfully !!")
-                            self.destory_add_dr()
-                            
+                                msg.showinfo("Add New Doctor","Doctore Added Successfully !!")
+                                self.destory_add_dr()
+                                
+                            else:
+                                msg.showinfo("Add New Doctor","Please Enter DOB in DD/MM/YYYY !")
+
                         else:
                             msg.showinfo("Add New Doctor","Please Enter DOB in DD/MM/YYYY !")
-
+                                
                     else:
-                        msg.showinfo("Add New Doctor","Please Enter DOB in DD/MM/YYYY !")
-                            
-                else:
-                    msg.showinfo("Add New Doctor","Please Enter Perfect Mobile Number !")
+                        msg.showinfo("Add New Doctor","Please Enter Perfect Mobile Number !")
 
+                else:
+                    msg.showinfo("Add New Doctor","Please Enter 10 Digits !")
+                    
             else:
-                msg.showinfo("Add New Doctor","Please Enter 10 Digits !")
+                msg.showinfo("Add New Doctor","Number Already Exists !")
 
 #--------------------------------------------------------------------NEW DOCTOR DESTORY METHOD---------------------------------------------------------------------
 
@@ -584,11 +619,14 @@ class HospitalManagementSystem:
         self.check_d_id_entry=tk.Entry(self.check_d_frame)
         self.check_d_id_entry.grid(row=30,column=1,padx=5,pady=5)
 
-        #OLD DOCTOR NAME
-        self.check_d_name=tk.Label(self.check_d_frame,text="Doctor Name :")
-        self.check_d_name.grid(row=35,column=0,padx=5,pady=5)
-        self.check_d_name_entry=tk.Entry(self.check_d_frame)
-        self.check_d_name_entry.grid(row=35,column=1,padx=5,pady=5)
+        doctor_names=self.fetch_dr()
+        # DOCTOR DROPDOWN MENU
+        self.doctor_label = tk.Label(self.check_d_frame, text="Select Doctor:")
+        self.doctor_label.grid(row=35, column=0, padx=5, pady=5)
+        self.doctor_var = tk.StringVar(self.check_d_frame)
+        self.doctor_var.set(doctor_names[0])
+        self.doctor_dropdown = tk.OptionMenu(self.check_d_frame, self.doctor_var, *doctor_names)
+        self.doctor_dropdown.grid(row=35 , column=1, padx=5, pady=5)
 
         #OLD DOCTOR DOB
         self.check_d_dob=tk.Label(self.check_d_frame,text="Doctor DOB :")
@@ -638,21 +676,27 @@ class HospitalManagementSystem:
 
 #--------------------------------------------------------------------OLD DOCTOR SEARCH METHOD---------------------------------------------------------------------
     def search_doctor(self):
-        if self.check_d_num_entry.get()=="":
-            msg.showinfo("Search Status","Mobile Number Is Mandatory ")
+        dname = self.doctor_var.get()
+        if dname=="":
+            msg.showinfo("Search Status","Doctor Name Is Mandatory ")
         else:
+            s =dname
+            start = s.find("'") + 1
+            end = s.rfind("'")
+            extracted = s[start:end]
+            print(extracted)
             self.conn=self.create_conn()
             self.cursor=self.conn.cursor()
-            self.q="select * from doctor where dnum=%s"
-            self.args=(self.check_d_num_entry.get(),)
+            self.q="select * from doctor where dname=%s"
+            self.args=(extracted,)
             self.cursor.execute(self.q,self.args)
             self.row=self.cursor.fetchall()
             if self.row:
                 for i in self.row:
                     self.check_d_id_entry.insert(0,i[0])
-                    self.check_d_name_entry.insert(1,i[1])
+                    #self.check_d_name_entry.insert(1,i[1])
                     self.check_d_dob_entry.insert(2,i[2])
-                    #self.check_d_num_entry.insert(3,i[3])
+                    self.check_d_num_entry.insert(3,i[3])
                     self.check_d_special_entry.insert(4,i[4])
                     self.check_d_salary_entry.insert(5,i[5])
                     self.check_d_exp_entry.insert(6,i[6])
@@ -662,17 +706,24 @@ class HospitalManagementSystem:
 
 #--------------------------------------------------------------------OLD DOCTOR DELETE METHOD---------------------------------------------------------------------
     def delete_doctor(self):
-        if self.check_d_num_entry.get()=="":
-            msg.showinfo("Delete Status","Mobile Number Is Mandatory")
+        dname = self.doctor_var.get()
+        if dname=="":
+            msg.showinfo("Search Status","Doctor Name Is Mandatory ")
         else:
+            s =dname
+            start = s.find("'") + 1
+            end = s.rfind("'")
+            extracted = s[start:end]
+            #rint(extracted)
             self.conn=self.create_conn()
             self.cursor=self.conn.cursor()
-            self.q="delete from doctor where dnum=%s"
-            self.args=(self.check_d_num_entry.get(),)
+            self.q="delete from doctor where dname=%s"
+            self.args=(extracted,)
             self.cursor.execute(self.q,self.args)
             self.conn.commit()
             self.conn.close()
             msg.showinfo("Delete Status","Data Deleted Successfully")
+            self.destory_check_doctor()
             
 #------------------------------------------------------------------OLD DOCTOR UPDATE METHOD -----------------------------------------------------------------
     def update_doctor(self):
@@ -707,6 +758,26 @@ class HospitalManagementSystem:
         self.cursor.execute(self.q)
         self.row=self.cursor.fetchall()
         return list(self.row)
+    
+#------------------------------------------------------Fetching All Numbers Of Paitents-----------------------------------------------
+
+    def fetch_num_paitent(self):
+        self.conn=self.create_conn()
+        self.cursor=self.conn.cursor()
+        self.q="select pnum from paitent"
+        self.cursor.execute(self.q)
+        self.num_paitent=self.cursor.fetchall()
+        return list(self.num_paitent)
+
+#------------------------------------------------------Fetching All Numbers Of Paitents-----------------------------------------------
+
+    def fetch_num_dr(self):
+        self.conn=self.create_conn()
+        self.cursor=self.conn.cursor()
+        self.q="select dnum from doctor"
+        self.cursor.execute(self.q)
+        self.num_dr=self.cursor.fetchall()
+        return list(self.num_dr)
 
 def main():
     root = tk.Tk()
