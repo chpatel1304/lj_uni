@@ -769,7 +769,7 @@ class HospitalManagementSystem:
         self.num_paitent=self.cursor.fetchall()
         return list(self.num_paitent)
 
-#------------------------------------------------------Fetching All Numbers Of Paitents-----------------------------------------------
+#------------------------------------------------------Fetching All Numbers Of Dcotor-----------------------------------------------
 
     def fetch_num_dr(self):
         self.conn=self.create_conn()
