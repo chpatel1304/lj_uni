@@ -311,7 +311,7 @@ class HospitalManagementSystem:
             else:
                 flag=0
                 
-            if flag==1:
+            if flag==0:
                 
                 if len(pnum)==10:
                     
@@ -444,7 +444,7 @@ class HospitalManagementSystem:
                 flag=0
             
             
-            if flag==1:
+            if flag==0:
                 
                 if len(dnum)==10:
                     
@@ -785,5 +785,4 @@ def main():
     root.mainloop()
     app.create_conn()
 
-if __name__ == "__main__":
-    main()
+main()
